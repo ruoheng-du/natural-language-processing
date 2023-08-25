@@ -124,18 +124,18 @@ print(dataset.head())
 tokenizer = keras.preprocessing.text.Tokenizer(num_words=MAX_VOCAB)
 tokenizer.fit_on_texts(reviews)
 
-# Input matrix for Model, zero-pad as to not effect predictions of attention mechanism
+# Input matrix for Model, zero-pad as to not affect predictions of attention mechanism
 x = np.zeros((len(reviews), MAX_SENT, MAX_WORDS), dtype="int32")
 
 for i, review in enumerate(reviews):
 
-    # Seperate each review into individual sentences
+    # Separate each review into individual sentences
     # https://www.nltk.org/api/nltk.tokenize.html
     sentences = nltk.tokenize.sent_tokenize(review)
     tokenized_sents = tokenizer.texts_to_sequences(sentences)
 
     # Add padding
-    tokenized_sents = keras.preprocessing.sequence.pad_sequences(tokenized_sents, maxlen=MAX_WORDS)
+    tokenized_sents = keras.preprocessing.sequence.pad_sequences(tokenized_sents, maxlen = MAX_WORDS)
     padding = MAX_SENT - tokenized_sents.shape[0]
 
     # No padding needed
@@ -143,7 +143,7 @@ for i, review in enumerate(reviews):
         tokenized_sents = tokenized_sents[0:MAX_SENT]
     else:
         # Add padding
-        tokenized_sents = np.pad(tokenized_sents, ((0, padding), (0, 0)), mode='constant', constant_values=0)
+        tokenized_sents = np.pad(tokenized_sents, ((0, padding), (0, 0)), mode = 'constant', constant_values = 0)
 
     # Add to input matrix
     x[i] = tokenized_sents[None, ...]
