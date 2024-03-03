@@ -4,8 +4,6 @@ This is the repository for some of the research assistant work done at Nanjing U
 ### Text Classification
 The /text_classification directory contains the training and prediction using the Hierarchical Attention Network model on different datasets. This part of the work aimed to explore the effectiveness of classification models for future research. 
 
-<img width="600" alt="han.png" src="https://github.com/ruoheng-du/natural-language-processing/raw/main/assets/han.png">
-
 ### Word Embeddings
 The /word_embeddings directory includes the code for static word embeddings, contextual word embeddings, and their Cartesian product. This part of the work aimed to prepare for text processing in subsequent research. 
 
